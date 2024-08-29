@@ -53,7 +53,7 @@ const SearchInput = () => {
 
         console.log(response.data);
 
-        const weatherIcon = allIcon[response.data.weather[0].icon] || sunIcon
+        const weatherIcon = allIcon[response.data.weather[0].icon] || sunIcon;
 
         setWeatherData({
           temperature: Math.floor(response.data.main.temp),
@@ -64,6 +64,7 @@ const SearchInput = () => {
         });
       } catch (error) {
         console.log(error);
+        alert("City not Found");
       }
     }
   };
@@ -84,7 +85,7 @@ const SearchInput = () => {
           onSearch={() => handleSearch(inputRef.current.input.value)}
         />
       </Space>
-      <WeatherInfo weatherData={weatherData}/>
+      <WeatherInfo weatherData={weatherData} />
     </div>
   );
 };
